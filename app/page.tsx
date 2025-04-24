@@ -18,12 +18,12 @@ export default function Home() {
   const TEXT = "(^.-)   Manoj Srivatsava   (^.^)";
   const PIXEL_SIZE = 2;
   const PIXEL_GAP = 1;
-  const ROCKET_SPEED = 5;
+  const ROCKET_SPEED = 8;
   const SHIP_SPEED = 1.5;
-  const ROCKET_LAUNCH_INTERVAL = 600; // ms
+  const ROCKET_LAUNCH_INTERVAL = 200; // ms
   const EXPLOSION_RADIUS = 10;
   const CANVAS_WIDTH = 1500;
-  const CANVAS_HEIGHT = 600;
+  const CANVAS_HEIGHT = 700;
 
   // Initialize the pixels from text
   const initializePixels = useCallback(() => {
@@ -276,7 +276,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-black w-full h-screen flex items-center justify-center flex-col">
+    <div className="bg-black w-full h-200 flex items-center justify-center flex-col">
       <h1 className="text-white text-xl mb-4"><strong>Portfolio of </strong></h1>
       <canvas ref={canvasRef} className="bg-black rounded-lg shadow-lg" />
       <p className="text-gray-400 mt-4 text-sm"></p>
