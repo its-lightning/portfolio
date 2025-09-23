@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="text-center py-2 bg-gradient-to-t from-black/95 to-black/80 shadow-none">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
+    <footer className="text-center py-2 sm:py-3 bg-gradient-to-t from-black/95 to-black/80 shadow-none w-full">
+      <div className="container mx-auto px-2 sm:px-4">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           {/* Portfolio on the left */}
           <div className="flex items-center">
             <a 
@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
           
           {/* Copyright in the center */}
-          <p className="text-gray-400">:D</p>
+          <p className="text-gray-400 text-xs sm:text-sm">:D</p>
           
           {/* Contact icons on the right */}
           <div className="flex space-x-4">

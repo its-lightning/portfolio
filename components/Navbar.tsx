@@ -88,7 +88,7 @@ export default function Navbar() {
       const boardHeight = 6; 
       const boardX = x + 13 + (width - boardWidth) / 2;
       // Move the hoverboard lower by increasing the offset (was y + 10)
-      const boardY = y + 28 + hoverHeight;
+      const boardY = y + 18 + hoverHeight;
       
       const pixelSize = 2;
       
@@ -240,20 +240,19 @@ export default function Navbar() {
   }, [links]);
 
   return (
-    <nav className="bg-black bg-gradient-to-b from-black/95 to-black/80 py-2 pl-3 relative shadow-none">
-  <ul ref={navRef} className="flex gap-0 text-gray-400 text-2xl font-bold">
+  <nav className="bg-black/80 backdrop-blur-sm py-2 pl-3 relative shadow-none">
+  <ul ref={navRef} className="flex gap-0 sm:gap-4 md:gap-8 text-gray-400 text-base sm:text-lg md:text-xl font-bold px-2">
         {links.map((link) => (
           <li 
             key={link.href} 
-            className="relative pb-8 px-4" // More padding for bigger tabs
+            className="relative pb-4 sm:pb-6 md:pb-8 px-2 sm:px-3 md:px-4"
             onMouseEnter={() => setHoveredLink(link.href)}
             onMouseLeave={() => setHoveredLink(null)}
           >
             <Link 
               href={link.href} 
               id={`nav-link-${link.href.replace(/\//g, '-')}`}
-              className="hover:text-white transition-colors duration-300 inline-block py-2 px-4 rounded-lg"
-              style={{ minWidth: 80, textAlign: 'center' }}
+              className="hover:text-white transition-colors duration-300 inline-block py-1 sm:py-2 px-2 sm:px-4 rounded-lg text-center w-full"
             >
               {link.name}
             </Link>

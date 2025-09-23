@@ -265,14 +265,14 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-black w-full h-full flex flex-col items-center justify-center flex-1 p-0 m-0">
-      <h1 className="text-white text-xl mb-4"><strong>Portfolio of </strong></h1>
+    <div className="bg-black w-full h-full flex flex-col items-center justify-center flex-1 p-0 m-0 max-w-full overflow-x-hidden">
+      <h1 className="text-white text-lg sm:text-xl md:text-2xl mb-2 sm:mb-4 text-center"><strong>Portfolio of </strong></h1>
       <canvas
         ref={canvasRef}
-        className="bg-black rounded-lg shadow-lg"
-        style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%' }}
+        className="bg-black rounded-lg shadow-lg w-full h-full max-w-full max-h-full"
+        style={{ width: '100%', height: '100%', maxWidth: '100vw', maxHeight: '100vh' }}
       />
-      <p className="text-gray-400 mt-4 text-sm"></p>
+      <p className="text-gray-400 mt-2 sm:mt-4 text-xs sm:text-sm"></p>
     </div>
   );
 }
