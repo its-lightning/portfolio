@@ -314,7 +314,7 @@ export default function Portfolio() {
       </div>
 
       {/* Content Container */}
-      <div className="container mx-auto py-16 px-4 relative z-10">
+  <div className="container mx-auto py-16 px-4 relative z-10 scale-95 md:scale-90" style={{ transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' }}>
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-400">

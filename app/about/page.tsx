@@ -284,26 +284,26 @@ export default function About() {
       </div>
 
       {/* Content Container */}
-  <div className="container mx-auto py-8 px-2 sm:py-12 sm:px-4 relative z-10">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2 tracking-tight">
+  <div className="container mx-auto pt-16 sm:pt-20 pb-4 px-1 sm:py-6 sm:px-2 relative z-10">
+        <div className="text-center mb-4">
+          <h1 className="text-xl sm:text-2xl font-bold text-white mb-1 tracking-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-400">
               About Me
             </span>
           </h1>
-          <div className="h-1 w-20 sm:w-28 mx-auto bg-gradient-to-r from-cyan-400 to-indigo-400 rounded-full"></div>
+          <div className="h-0.5 w-12 sm:w-16 mx-auto bg-gradient-to-r from-cyan-400 to-indigo-400 rounded-full"></div>
         </div>
 
         {/* Animated Pixel Border */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-20 sm:top-28 w-2/3 sm:w-3/4 h-1 overflow-hidden">
+  <div className="absolute left-1/2 transform -translate-x-1/2 top-12 sm:top-16 w-1/2 sm:w-2/3 h-0.5 overflow-hidden">
           <div className="animate-pulse">
-            {Array.from({ length: 15 }).map((_, i) => (
+            {Array.from({ length: 10 }).map((_, i) => (
               <div 
                 key={i} 
-                className="absolute h-1" 
+                className="absolute h-0.5" 
                 style={{ 
-                  left: `${i * 6.7}%`, 
-                  width: '3%', 
+                  left: `${i * 10}%`, 
+                  width: '2%', 
                   backgroundColor: i % 2 === 0 ? '#8BE9FD' : '#BD93F9',
                   opacity: 0.6
                 }} 
@@ -312,36 +312,36 @@ export default function About() {
           </div>
         </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
           {sections.map((section, index) => (
             <div 
               key={index} 
-              className="transform transition duration-500 hover:scale-102"
+              className="transform transition duration-500 hover:scale-105"
               style={{ 
                 transitionDelay: `${index * 100}ms`,
-                transform: `translateY(${Math.min(0, -15 + scrollPosition/20)}px)` 
+                transform: `translateY(${Math.min(0, -8 + scrollPosition/40)}px)` 
               }}
             >
-              <div className={`bg-gradient-to-r ${section.bg} rounded-xl shadow-lg overflow-hidden border border-gray-700 text-base sm:text-sm`}>
+              <div className={`bg-gradient-to-r ${section.bg} rounded-lg shadow-md overflow-hidden border border-gray-700 text-xs sm:text-sm`}>
                 {/* Pixelated Card Corner Decorations */}
-                <div className="absolute w-2 h-2 top-0 left-0 border-t border-l border-cyan-400"></div>
-                <div className="absolute w-2 h-2 top-0 right-0 border-t border-r border-cyan-400"></div>
-                <div className="absolute w-2 h-2 bottom-0 left-0 border-b border-l border-cyan-400"></div>
-                <div className="absolute w-2 h-2 bottom-0 right-0 border-b border-r border-cyan-400"></div>
+                <div className="absolute w-1.5 h-1.5 top-0 left-0 border-t border-l border-cyan-400"></div>
+                <div className="absolute w-1.5 h-1.5 top-0 right-0 border-t border-r border-cyan-400"></div>
+                <div className="absolute w-1.5 h-1.5 bottom-0 left-0 border-b border-l border-cyan-400"></div>
+                <div className="absolute w-1.5 h-1.5 bottom-0 right-0 border-b border-r border-cyan-400"></div>
                 
-                <div className="flex items-center p-3 sm:p-4 border-b border-gray-700 relative">
-                  <span className="text-2xl sm:text-3xl mr-2">{section.icon}</span>
-                  <h2 className="text-lg sm:text-xl font-bold text-white">{section.title}</h2>
+                <div className="flex items-center p-2 sm:p-3 border-b border-gray-700 relative">
+                  <span className="text-lg sm:text-xl mr-1">{section.icon}</span>
+                  <h2 className="text-base sm:text-lg font-bold text-white">{section.title}</h2>
                   {/* Pixel Decoration */}
-                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                    <div className="w-1 h-1 bg-cyan-300 inline-block mr-1"></div>
-                    <div className="w-1 h-1 bg-cyan-400 inline-block mr-1"></div>
+                  <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                    <div className="w-1 h-1 bg-cyan-300 inline-block mr-0.5"></div>
+                    <div className="w-1 h-1 bg-cyan-400 inline-block mr-0.5"></div>
                     <div className="w-1 h-1 bg-cyan-500 inline-block"></div>
                   </div>
                 </div>
-                <div className="p-3 sm:p-4 bg-black bg-opacity-50 relative">
+                <div className="p-2 sm:p-3 bg-black bg-opacity-50 relative">
                   {section.text.map((line, i) => (
-                    <p key={i} className={`text-gray-200 text-sm sm:text-base ${i > 0 ? 'mt-2' : ''}`}>
+                    <p key={i} className={`text-gray-200 text-xs sm:text-sm ${i > 0 ? 'mt-1' : ''}`}>
                       {line}
                     </p>
                   ))}
@@ -352,7 +352,7 @@ export default function About() {
         </div>
         
         {/* Pixel Art Footer Decoration */}
-        <div className="mt-8 text-center">
+  <div className="mt-4 text-center">
           <div className="inline-block">
             {Array.from({ length: 11 }).map((_, i) => (
               <div key={i} className="flex justify-center">
@@ -361,14 +361,14 @@ export default function About() {
                   return distance <= 5 && distance > 3.5 ? (
                     <div 
                       key={j} 
-                      className="w-1.5 h-1.5" 
+                      className="w-1 h-1" 
                       style={{ 
                         backgroundColor: j % 2 === 0 ? '#8BE9FD' : '#BD93F9',
                         opacity: 0.6
                       }}
                     />
                   ) : (
-                    <div key={j} className="w-1.5 h-1.5" />
+                    <div key={j} className="w-1 h-1" />
                   );
                 })}
               </div>

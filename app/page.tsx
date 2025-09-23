@@ -15,7 +15,22 @@ export default function Home() {
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Configuration constants
-  const TEXT = "(^.-)   Manoj Srivatsava   (^.^)";
+  // Responsive: show full name on desktop/tablet, 'Manoj :D' on mobile
+  const getResponsiveText = () => {
+    if (typeof window !== 'undefined' && window.innerWidth <= 640) {
+      return 'Manoj :D';
+    }
+    return '(^.-)   Manoj Srivatsava   (^.^)';
+  };
+  const [TEXT, setTEXT] = useState(getResponsiveText());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setTEXT(getResponsiveText());
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const PIXEL_SIZE = 2;
   const PIXEL_GAP = 1;
   const ROCKET_SPEED = 8;

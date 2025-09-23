@@ -86,9 +86,9 @@ export default function Navbar() {
       const hoverHeight = Math.sin(time * 1.5) * 1;
       const boardWidth = Math.max(20, width * 0.8);
       const boardHeight = 6; 
-      const boardX = x + 13 + (width - boardWidth) / 2;
+      const boardX = x + 8 + (width - boardWidth) / 2;
       // Move the hoverboard lower by increasing the offset (was y + 10)
-      const boardY = y + 18 + hoverHeight;
+      const boardY = y + 3 + hoverHeight;
       
       const pixelSize = 2;
       
@@ -240,19 +240,19 @@ export default function Navbar() {
   }, [links]);
 
   return (
-  <nav className="bg-black/80 backdrop-blur-sm py-2 pl-3 relative shadow-none">
-  <ul ref={navRef} className="flex gap-0 sm:gap-4 md:gap-8 text-gray-400 text-base sm:text-lg md:text-xl font-bold px-2">
+  <nav className="bg-black/80 backdrop-blur-sm py-1 pl-2 relative shadow-none">
+  <ul ref={navRef} className="flex gap-0 sm:gap-2 md:gap-4 text-gray-400 text-xs sm:text-sm md:text-base font-bold px-1">
         {links.map((link) => (
           <li 
             key={link.href} 
-            className="relative pb-4 sm:pb-6 md:pb-8 px-2 sm:px-3 md:px-4"
+            className="relative pb-2 sm:pb-3 md:pb-4 px-1 sm:px-2 md:px-2"
             onMouseEnter={() => setHoveredLink(link.href)}
             onMouseLeave={() => setHoveredLink(null)}
           >
             <Link 
               href={link.href} 
               id={`nav-link-${link.href.replace(/\//g, '-')}`}
-              className="hover:text-white transition-colors duration-300 inline-block py-1 sm:py-2 px-2 sm:px-4 rounded-lg text-center w-full"
+              className="hover:text-white transition-colors duration-300 inline-block py-0 sm:py-1 px-1 sm:px-2 rounded-lg text-center w-full tracking-tight"
             >
               {link.name}
             </Link>
