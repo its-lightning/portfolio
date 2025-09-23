@@ -87,7 +87,8 @@ export default function Navbar() {
       const boardWidth = Math.max(20, width * 0.8);
       const boardHeight = 6; 
       const boardX = x + 13 + (width - boardWidth) / 2;
-      const boardY = y + 10 + hoverHeight;
+      // Move the hoverboard lower by increasing the offset (was y + 10)
+      const boardY = y + 28 + hoverHeight;
       
       const pixelSize = 2;
       
@@ -220,24 +221,11 @@ export default function Navbar() {
         drawPixelatedHoverboard(currentX, currentWidth, 30, time);
       }
       
-      // Animate text positions for bobbing effect
+      // Remove bobbing effect for nav links
       links.forEach(link => {
         const linkElement = document.getElementById(`nav-link-${link.href.replace(/\//g, '-')}`);
         if (linkElement) {
-          // Calculate new position for smooth bobbing
-          const basePos = textPositionsRef.current.get(link.href) || 0;
-          let newPos = 0;
-          
-          // If this is the active link, make it bob
-          if (link.href === activeLink) {
-            newPos = Math.sin(time * 2) * 1.2;
-          } else {
-            // Gradually return to zero if not active
-            newPos = basePos * 0.8;
-          }
-          
-          textPositionsRef.current.set(link.href, newPos);
-          linkElement.style.transform = `translateY(${newPos}px)`;
+          linkElement.style.transform = '';
         }
       });
       
@@ -252,19 +240,20 @@ export default function Navbar() {
   }, [links]);
 
   return (
-    <nav className="bg-black border-b border-gray-800 py-3 pl-3 relative">
-      <ul ref={navRef} className="flex gap-8 text-gray-400 text-base font-bold">
+    <nav className="bg-black bg-gradient-to-b from-black/95 to-black/80 py-2 pl-3 relative shadow-none">
+  <ul ref={navRef} className="flex gap-0 text-gray-400 text-2xl font-bold">
         {links.map((link) => (
           <li 
             key={link.href} 
-            className="relative pb-8" // Added padding at bottom to make room for hoverboard
+            className="relative pb-8 px-4" // More padding for bigger tabs
             onMouseEnter={() => setHoveredLink(link.href)}
             onMouseLeave={() => setHoveredLink(null)}
           >
             <Link 
               href={link.href} 
               id={`nav-link-${link.href.replace(/\//g, '-')}`}
-              className="hover:text-white transition-colors duration-300 inline-block"
+              className="hover:text-white transition-colors duration-300 inline-block py-2 px-4 rounded-lg"
+              style={{ minWidth: 80, textAlign: 'center' }}
             >
               {link.name}
             </Link>

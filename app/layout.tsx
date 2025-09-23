@@ -14,9 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white">
+  <body className="bg-black text-white min-h-screen h-screen flex flex-col">
         <Navbar />
-        <main className="container mx-auto px-6">{children}</main>
+  <main className="flex-1 flex flex-col justify-center items-center w-full p-0 m-0">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

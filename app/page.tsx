@@ -22,33 +22,28 @@ export default function Home() {
   const SHIP_SPEED = 1.5;
   const ROCKET_LAUNCH_INTERVAL = 200; // ms
   const EXPLOSION_RADIUS = 10;
-  const CANVAS_WIDTH = 1500;
-  const CANVAS_HEIGHT = 700;
+  const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
 
   // Initialize the pixels from text
   const initializePixels = useCallback(() => {
     if (!canvasRef.current) return;
-    
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d")!;
-    
     // Set canvas dimensions
-    canvas.width = CANVAS_WIDTH;
-    canvas.height = CANVAS_HEIGHT;
-
+    canvas.width = canvasSize.width;
+    canvas.height = canvasSize.height;
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
     // Draw the text that will be pixelated
     ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 80px monospace";
+    // Responsive font size and y position
+    const fontSize = Math.max(32, Math.floor(canvas.height / 9));
+    ctx.font = `bold ${fontSize}px monospace`;
     ctx.textAlign = "center";
-    ctx.fillText(TEXT, canvas.width / 2, 150);
-
+    ctx.fillText(TEXT, canvas.width / 2, fontSize + 40);
     // Extract pixels
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const pixels = [];
-
     for (let y = 0; y < imageData.height; y += PIXEL_SIZE + PIXEL_GAP) {
       for (let x = 0; x < imageData.width; x += PIXEL_SIZE + PIXEL_GAP) {
         const i = (y * imageData.width + x) * 4;
@@ -62,64 +57,62 @@ export default function Home() {
         }
       }
     }
-    
     pixelsRef.current = pixels;
     setIsInitialized(true);
-  }, []);
+  }, [canvasSize]);
 
   // Launch rockets at intervals
   useEffect(() => {
     if (!isInitialized) return;
-
     const launchRocket = () => {
       const shipIndex = Math.floor(Math.random() * shipsRef.current.length);
       const ship = shipsRef.current[shipIndex];
-      rocketsRef.current.push({ x: ship.x, y: CANVAS_HEIGHT - 50 });
+      rocketsRef.current.push({ x: ship.x, y: canvasSize.height - 50 });
     };
-
     const interval = setInterval(launchRocket, ROCKET_LAUNCH_INTERVAL);
     return () => clearInterval(interval);
-  }, [isInitialized]);
+  }, [isInitialized, canvasSize.height]);
 
   // Main animation loop
+  // Responsive canvas size
   useEffect(() => {
-    initializePixels();
-    
+    const handleResize = () => {
+      setCanvasSize({
+        width: Math.min(window.innerWidth * 0.98, 1500),
+        height: Math.min(window.innerHeight * 0.7, 700)
+      });
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (canvasSize.width && canvasSize.height) {
+      initializePixels();
+    }
     return () => {
       if (frameIdRef.current) {
         cancelAnimationFrame(frameIdRef.current);
       }
     };
-  }, [initializePixels]);
+  }, [initializePixels, canvasSize]);
 
   // Animation function
   useEffect(() => {
     if (!isInitialized || !canvasRef.current) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d")!;
-    
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Draw starry background
       drawStarryBackground(ctx, canvas.width, canvas.height);
-      
-      // Update and draw ships
       updateAndDrawShips(ctx);
-      
-      // Update and draw text pixels
       updateAndDrawPixels(ctx);
-      
-      // Update and draw rockets
       updateAndDrawRockets(ctx);
-      
-      // Continue animation loop
       frameIdRef.current = requestAnimationFrame(animate);
     };
-
     animate();
-  }, [isInitialized]);
+  }, [isInitialized, canvasSize]);
 
   // Draw starry background
   const drawStarryBackground = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
@@ -143,28 +136,24 @@ export default function Home() {
     shipsRef.current.forEach((ship) => {
       // Move ships
       ship.x += ship.dx * SHIP_SPEED;
-      if (ship.x < 40 || ship.x > CANVAS_WIDTH - 40) ship.dx *= -1;
-      
+      if (ship.x < 40 || ship.x > canvasSize.width - 40) ship.dx *= -1;
       // Draw ship body
       ctx.fillStyle = "#8f8f8f";
-      ctx.fillRect(ship.x - 15, CANVAS_HEIGHT - 30, 30, 10);
-      
+      ctx.fillRect(ship.x - 15, canvasSize.height - 30, 30, 10);
       // Draw ship top
       ctx.fillStyle = "#6f6f6f";
       ctx.beginPath();
-      ctx.moveTo(ship.x - 10, CANVAS_HEIGHT - 30);
-      ctx.lineTo(ship.x + 10, CANVAS_HEIGHT - 30);
-      ctx.lineTo(ship.x, CANVAS_HEIGHT - 38);
+      ctx.moveTo(ship.x - 10, canvasSize.height - 30);
+      ctx.lineTo(ship.x + 10, canvasSize.height - 30);
+      ctx.lineTo(ship.x, canvasSize.height - 38);
       ctx.fill();
-      
       // Draw cockpit
       ctx.fillStyle = "#3fdfff";
-      ctx.fillRect(ship.x - 4, CANVAS_HEIGHT - 28, 8, 4);
-      
+      ctx.fillRect(ship.x - 4, canvasSize.height - 28, 8, 4);
       // Draw thrusters
       ctx.fillStyle = "#ff7700";
-      ctx.fillRect(ship.x - 12, CANVAS_HEIGHT - 20, 4, 2);
-      ctx.fillRect(ship.x + 8, CANVAS_HEIGHT - 20, 4, 2);
+      ctx.fillRect(ship.x - 12, canvasSize.height - 20, 4, 2);
+      ctx.fillRect(ship.x + 8, canvasSize.height - 20, 4, 2);
     });
   };
 
@@ -276,9 +265,13 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-black w-full h-200 flex items-center justify-center flex-col">
+    <div className="bg-black w-full h-full flex flex-col items-center justify-center flex-1 p-0 m-0">
       <h1 className="text-white text-xl mb-4"><strong>Portfolio of </strong></h1>
-      <canvas ref={canvasRef} className="bg-black rounded-lg shadow-lg" />
+      <canvas
+        ref={canvasRef}
+        className="bg-black rounded-lg shadow-lg"
+        style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%' }}
+      />
       <p className="text-gray-400 mt-4 text-sm"></p>
     </div>
   );
