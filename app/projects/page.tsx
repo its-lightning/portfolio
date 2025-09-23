@@ -13,6 +13,14 @@ const projects = [
     link: "https://myflask-phi.vercel.app/"
   },
   {
+    title: "Multiplayer tetris",
+    description:
+      "A multiplayer Tetris game built with Node.js and Socket.io, featuring real-time gameplay and competitive scoring.",
+    image: "/images/tetris.png",
+    tags: ["Sockets", "Cloudflare domain", "Game"],
+    link: "https://itslightning.online"
+  },
+  {
     title: "Wumpus World Simulation",
     description:
       "A simulation of the Wumpus World problem using AI agents to demonstrate knowledge-based inference and decision-making.",
@@ -21,12 +29,20 @@ const projects = [
     link: "https://wumpus-world-delta.vercel.app/"
   },
   {
+    title: "Sudoku Solver and backtracking visualizer",
+    description:
+      "A web app that solves Sudoku puzzles using backtracking algorithm and visualizes the solving process step-by-step.",
+    image: "/images/sudoku.png",
+    tags: ["AI", "Simulation", "Backtracking"],
+    link: "https://wumpus-world-delta.vercel.app/"
+  },
+  {
     title: "Smart Greenhouse",
     description:
       "An IoT-based greenhouse automation system using ESP32 with sensors for temperature, light, moisture, and gas monitoring, integrated with a website for real-time display.",
     image: "/images/smart-greenhouse.png",
     tags: ["IoT", "ESP32", "Sensors", "Web Dashboard"],
-    link: "https://smartgh.vercel.app/"
+    link: "https://sudoku-eta-woad.vercel.app/"
   },
   // {
   //   title: "Lighto",

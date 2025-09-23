@@ -20,10 +20,13 @@ export default function About() {
     {
       title: "About Me",
       text: [
-        "I'm a Computer Science undergrad at SRM IST with a passion for artificial intelligence, embedded systems, and full-stack development. I love blending hardware with intelligent software to build impactful solutions.",
-        "I've worked on a variety of projects—both solo and collaborative—ranging from IoT-based systems like the Smart Greenhouse to socially-driven apps like Feast Forward. My core strengths lie in creating systems that combine data, design, and hardware control to solve real-world problems.",
-        "Since early 2023, I've also been running an AI tutoring service for high school students. I specialize in simplifying complex topics like neural networks, machine learning algorithms, and NLP, using custom exercises and hands-on approaches to make AI more accessible and engaging.",
-        "Beyond tech, I have a deep appreciation for music theory and enjoy analyzing the structure of compositions across genres. I also played competitive volleyball in high school, which taught me a lot about teamwork, discipline, and mental focus—skills that still influence how I approach engineering and problem-solving today.",
+        "Computer Science undergrad at SRM IST, 3rd year with good exposure in Machine learning, embedded systems and full-stack development.",
+        "Built solo and team projects based on frameworks that revolve around IoT, AI-based applications and other full-stack applications combining software and hardware.",
+        "Interned at Exdion Humane Technologies for 45 days, developing models which are now in production.",
+        "Proficient in Python, PyTorch, Scikit-Learn, C++, Flask, Node.JS, Next.JS and ESP32 development with PlatformIO.",
+        "Developed multiplayer browser-based games with real-time web socket gameplay, cloud-hosted database, hosted on a domain using Cloudflare.",
+        "Two years of tutoring high school students on the concepts of Artificial Intelligence.",
+        "Portfolio webpage: View Detailed Profile"
       ],
       icon: "👨‍💻",
       bg: "from-purple-600 to-indigo-700",
@@ -31,10 +34,14 @@ export default function About() {
     {
       title: "Experience",
       text: [
-        "AI Tutoring Service – Tutor (Jan 2023 – Present)",
-        "• Provided personalized AI tutoring to high school students on topics like machine learning, neural networks, and NLP.",
-        "• Designed customized learning paths, exercises, and projects to fit each student's level and interest.",
-        "• Helped students improve their conceptual understanding and confidence in advanced AI topics.",
+        "Interned at Exdion Humane Technologies Tutor : June 2025 – July 2025",
+        "Independently led and delivered the following achievements:",
+        "Trained multiple high-accuracy machine learning models, which are now in production to predict repair type and location in wound repair procedures within the urgent care process.",
+        "Automated the validation process for in-patient problem and risk model results.",
+        "Generated evaluation thresholds to improve model efficiency.",
+        "AI Tutoring Service Tutor : Jan 2023 - Present",
+        "Provided personalized artificial intelligence tutoring to high school students, focusing on topics like machine learning, neural networks, and natural language processing.",
+        "Designed customized learning materials and exercises to cater to individual student needs, helping them improve their understanding and performance."
       ],
       icon: "🚀",
       bg: "from-teal-600 to-cyan-700",
@@ -44,9 +51,9 @@ export default function About() {
       text: [
         "SRM Institute of Science and Technology, Kattankulathur",
         "B.Tech in Computer Science (Graduation: May 2027)",
-        "GPA: 8.92/10.00",
+        "GPA: 9.00/10.00",
         "Concentrations: AI, Modeling/Simulations, Hardware, and Embedded Projects",
-        "Relevant Coursework: Data Structures & Algorithms, Machine Learning, AI, Object-Oriented Programming, and Statistics.",
+        "Relevant Coursework: Data Structures & Algorithms, Machine Learning, AI, Object-Oriented Programming, and Statistics."
       ],
       icon: "🎓",
       bg: "from-yellow-500 to-orange-600",
@@ -54,9 +61,9 @@ export default function About() {
     {
       title: "Certifications",
       text: [
-        "•  Nptel, Programming in Java ",
-        "•	C Programming For Beginners - Master the C Language, Udemy",
-        "•	Learn C++ Programming -Beginner to Advance- Deep Dive in C++, Udemy",
+        "Nptel, Programming in Java",
+        "C Programming For Beginners - Master the C Language, Udemy",
+        "Learn C++ Programming - Beginner to Advance - Deep Dive in C++, Udemy"
       ],
       icon: "🏆",
       bg: "from-red-600 to-pink-700",
