@@ -6,7 +6,7 @@ export default function Footer() {
           {/* Portfolio on the left */}
           <div className="flex items-center">
             <a 
-              href="https://drive.google.com/file/d/1c2526ho3AOhBEmiF_r9twnQcKZaW-u5P/view?usp=drive_link" 
+              href="https://drive.google.com/file/d/1dXu_n0VhPvnqKW287urq1QcwwxOhLQMr/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center text-gray-300 hover:text-white transition"
