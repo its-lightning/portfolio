@@ -18,7 +18,7 @@ const projects = [
       "A multiplayer Tetris game built with Node.js and Socket.io, featuring real-time gameplay and competitive scoring.",
     image: "/images/tetris.png",
     tags: ["Sockets", "Cloudflare domain", "Game"],
-    link: "https://itslightning.online"
+    link: "https://tetris-seven-phi.vercel.app/login"
   },
   {
     title: "Wumpus World Simulation",
@@ -34,7 +34,7 @@ const projects = [
       "A web app that solves Sudoku puzzles using backtracking algorithm and visualizes the solving process step-by-step.",
     image: "/images/sudoku.png",
     tags: ["AI", "Simulation", "Backtracking"],
-    link: "https://wumpus-world-delta.vercel.app/"
+    link: "https://sudoku-eta-woad.vercel.app/"
   },
   {
     title: "Smart Greenhouse",
@@ -42,32 +42,32 @@ const projects = [
       "An IoT-based greenhouse automation system using ESP32 with sensors for temperature, light, moisture, and gas monitoring, integrated with a website for real-time display.",
     image: "/images/smart-greenhouse.png",
     tags: ["IoT", "ESP32", "Sensors", "Web Dashboard"],
-    link: "https://sudoku-eta-woad.vercel.app/"
+    link: "https://smartgh.vercel.app/"
   },
-  // {
-  //   title: "Lighto",
-  //   description:
-  //     "Gesture-based lighting system using an ultrasonic sensor. Displays the user profile when recognized gestures are performed.",
-  //   image: "/images/lighto.png",
-  //   tags: ["Gesture Control", "Ultrasonic Sensor", "Hardware"],
-  //   link: "/projects/lighto"
-  // },
-  // {
-  //   title: "Mystic Sword",
-  //   description:
-  //     "A wave-based, single/multiplayer game with a customizable keybinding system and MySQL database integration for player stats and progression.",
-  //   image: "/images/mystic-sword.png",
-  //   tags: ["Game", "Multiplayer", "MySQL"],
-  //   link: "/projects/mystic-sword"
-  // },
-  // {
-  //   title: "Feast Forward",
-  //   description:
-  //     "A food donation management system that connects donors with NGOs and food banks using a smart logistics algorithm.",
-  //   image: "/images/feast-forward.png",
-  //   tags: ["Donation", "Logistics", "Web App"],
-  //   link: "/projects/feast-forward"
-  // }
+  {
+    title: "Lighto",
+    description:
+      "Gesture-based lighting system using an ultrasonic sensor. Displays the user profile when recognized gestures are performed.",
+    image: "/images/lighto.png",
+    tags: ["Gesture Control", "Ultrasonic Sensor", "Hardware"],
+    link: "/projects/lighto"
+  },
+  {
+    title: "Mystic Sword",
+    description:
+      "A wave-based, single/multiplayer game with a customizable keybinding system and MySQL database integration for player stats and progression.",
+    image: "/images/mystic-sword.png",
+    tags: ["Game", "Multiplayer", "MySQL"],
+    link: "/projects/mystic-sword"
+  },
+  {
+    title: "Feast Forward",
+    description:
+      "A food donation management system that connects donors with NGOs and food banks using a smart logistics algorithm.",
+    image: "/images/feast-forward.png",
+    tags: ["Donation", "Logistics", "Web App"],
+    link: "/projects/feast-forward"
+  }
 ];
 
 interface ProjectProps {
