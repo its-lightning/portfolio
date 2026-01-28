@@ -10,7 +10,7 @@ const projects = [
       "An unbeatable AI agent built using minimax algorithm with pruning for the classic Tic Tac Toe game.",
     image: "/images/tictactoe.png",
     tags: ["AI", "Minimax", "Game"],
-    link: "https://myflask-phi.vercel.app/"
+    link: "https://tictactoe.itslightning.online/"
   },
   {
     title: "Multiplayer tetris",
@@ -18,7 +18,7 @@ const projects = [
       "A multiplayer Tetris game built with Node.js and Socket.io, featuring real-time gameplay and competitive scoring.",
     image: "/images/tetris.png",
     tags: ["Sockets", "Cloudflare domain", "Game"],
-    link: "https://tetris-seven-phi.vercel.app/login"
+    link: "https://tetris.itslightning.online/"
   },
   {
     title: "Wumpus World Simulation",
@@ -26,7 +26,7 @@ const projects = [
       "A simulation of the Wumpus World problem using AI agents to demonstrate knowledge-based inference and decision-making.",
     image: "/images/wumpusworld.png",
     tags: ["AI", "Simulation", "Logic"],
-    link: "https://wumpus-world-delta.vercel.app/"
+    link: "https://wumpus.itslightning.online/"
   },
   {
     title: "Sudoku Solver and backtracking visualizer",
@@ -34,7 +34,7 @@ const projects = [
       "A web app that solves Sudoku puzzles using backtracking algorithm and visualizes the solving process step-by-step.",
     image: "/images/sudoku.png",
     tags: ["AI", "Simulation", "Backtracking"],
-    link: "https://sudoku-eta-woad.vercel.app/"
+    link: "https://sudoku.itslightning.online"
   },
   {
     title: "Smart Greenhouse",
